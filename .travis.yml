@@ -15,7 +15,7 @@ before_script:
   - cd czipperz/vick
   - mkdir -p plugins
   - cd plugins
-  - git clone my-plugin
+  - git clone https://github.com/czipperz/vick-plugin-base
   - cd ..
 
 script: make CXX=g++-4.8 test
