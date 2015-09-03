@@ -1,5 +1,6 @@
 CFLAGS=-std=c++11 -I../../src -I../../test -Isrc
-LDFLAGS=`find ../../out -type f -not -name main.o` ../../testout/main.o -lncurses
+LDFLAGS=`find ../../out -type f -not \( -name main.o -o -name configuration.o \)` \
+        ../../testout/main.o -lncurses
 O=out
 S=src
 T=test
