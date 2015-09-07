@@ -34,11 +34,11 @@ ${TO}/%.o: $T/%.cc
 	${CXX} -o $@ -c $< ${CFLAGS}
 
 clean:
-	[ ! -d out ] || rm -R out
+	[ ! -d $O ] || rm -R $O
 	[ -z "`find -name '*~'`" ] || rm `find -name '*~'`
 
 cleantest:
-	rm -R ${TO}
+	[ ! -d ${TO} ] || rm -R ${TO}
 
 test: ${files} ${testfiles}
 	@mkdir $T
