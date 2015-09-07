@@ -41,6 +41,7 @@ cleantest:
 	rm -R ${TO}
 
 test: ${files} ${testfiles}
+	@mkdir $T
 	${CXX} -o $T/out $^ ${CFLAGS} ${LDFLAGS}
 	./$T/out
 
