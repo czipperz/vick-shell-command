@@ -1,6 +1,6 @@
 CFLAGS=-std=c++11 -I../../src -I../../test -Isrc
 LDFLAGS=`find ../../out -type f -not \( -name main.o -o -name configuration.o \)` \
-        ../../out/main.o -lncurses
+        -lncurses
 O=out
 S=src
 T=test
@@ -38,7 +38,7 @@ clean:
 
 test: ${files} ${testfiles}
 	@mkdir $T
-	${CXX} -o $T/out $^ ${CFLAGS} ${LDFLAGS}
+	${CXX} -o $T/out $^ ${CFLAGS} ${LDFLAGS} ../../src/configuration.cc -Dtesting
 	./$T/out
 
 tags:
