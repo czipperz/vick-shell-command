@@ -20,4 +20,6 @@ before_script:
   - git clone https://github.com/czipperz/vick-plugin-base
   - cd ..
 
-script: make CXX=g++-4.8 test -j 10
+script:
+  - make regen Dtesting=-Dtesting
+  - make CXX=g++-4.8 test -j 10
