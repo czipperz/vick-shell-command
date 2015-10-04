@@ -4,6 +4,7 @@ LDFLAGS=`find ../../out -type f -not \( -name main.o -o -name configuration.o \)
 O=out
 S=src
 T=test
+TO=testout
 CXX=clang++
 
 # files in form ``$O/file.o'' format
@@ -32,13 +33,14 @@ $O/%.o: $S/%.cc
 	@mkdir -p $O
 	${CXX} -o $@ -c $< ${CFLAGS}
 
-$O/%.o: $T/%.cc
-	@mkdir -p $O
+${TO}/%.o: $T/%.cc
+	@mkdir -p ${TO}
 	${CXX} -o $@ -c $< ${CFLAGS}
 
 clean:
 	[ ! -d $O ] || rm -R $O
 	[ -z "`find -name '*~'`" ] || rm `find -name '*~'`
+	[ ! -d ${TO} ] || rm -R ${TO}
 
 $T/blank:
 	touch $T/blank
