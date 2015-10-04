@@ -14,8 +14,12 @@ CXX=clang++
 #       $O/newmove.o
 files=
 
-# set ot tests : we use ``catch'' as the framework as it is incredibly
-# well designed.  https://github.com/philsquared/Catch
+# we use ``catch'' as the framework as it is amazing
+# https://github.com/philsquared/Catch
+#
+# Example:
+#
+# testfiles=${TO}/move_tests.o
 testfiles=
 
 all: ${files}
