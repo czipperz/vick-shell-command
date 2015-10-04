@@ -36,9 +36,13 @@ clean:
 	[ ! -d $O ] || rm -R $O
 	[ -z "`find -name '*~'`" ] || rm `find -name '*~'`
 
-test: ${files} ${testfiles}
-	@mkdir $T
-	${CXX} -o $T/out $^ ${CFLAGS} ${LDFLAGS} ../../src/configuration.cc -Dtesting
+$T/blank:
+	touch $T/blank
+
+test: ${files} ${testfiles} $T/blank
+	rm $T/blank
+	@mkdir -p $T
+	${CXX} -o $T/out ${files} ${testfiles} ${CFLAGS} ${LDFLAGS} ../../src/configuration.cc -Dtesting
 	./$T/out
 
 tags:
