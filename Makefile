@@ -1,6 +1,11 @@
 CFLAGS=-std=c++11 -I../../src -I../../test -Isrc
 LDFLAGS=`find ../../out -type f -not \( -name main.o -o -name configuration.o \)` \
         -lncurses ../../testout/test_main.o
+        # `find` object files for dependencies here (put at end of LDFLAGS).
+        # Keep ``s so it is shell command.
+        # example for vick-move:
+        #
+        # `find ../vick-move/out -type f`
 O=out
 S=src
 T=test
@@ -25,6 +30,16 @@ testfiles=
 
 all: ${files}
 
+begin:
+	# Install dependencies here.
+	# Example for vick-move:
+	#
+	# [ -d ../vick-move ] || git clone "https://github.com/czipperz/vick-move" ../vick-move
+	# cd ../vick-move && make begin && make
+	#
+	# Ensure that you call ``make begin`` AND ``make`` on it!
+	# It may be built after yours, don't make a data race
+
 $O/%.o: $S/%.cc $S/%.hh
 	@mkdir -p $O
 	${CXX} -o $@ -c $< ${CFLAGS}
@@ -48,6 +63,10 @@ $T/blank:
 
 test: ${files} ${testfiles} $T/blank
 	@rm $T/blank
+	# Call ``make test`` on dependencies here.
+	# Example for vick-move:
+	#
+	# cd ../vick-move && make test
 	@mkdir -p $T
 	${CXX} -o $T/out ${files} ${testfiles} ${CFLAGS} ${LDFLAGS} ../../src/configuration.cc -Dtesting
 	./$T/out
