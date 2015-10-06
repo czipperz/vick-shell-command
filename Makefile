@@ -63,10 +63,6 @@ $T/blank:
 
 test: ${files} ${testfiles} $T/blank
 	@rm $T/blank
-	# Call ``make test`` on dependencies here.
-	# Example for vick-move:
-	#
-	# cd ../vick-move && make test
 	@mkdir -p $T
 	${CXX} -o $T/out ${files} ${testfiles} ${CFLAGS} ${LDFLAGS} ../../src/configuration.cc -Dtesting
 	./$T/out
