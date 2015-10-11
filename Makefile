@@ -35,10 +35,10 @@ begin:
 	# Example for vick-move:
 	#
 	# [ -d ../vick-move ] || git clone "https://github.com/czipperz/vick-move" ../vick-move
-	# cd ../vick-move && make begin && make
+	# cd ../vick-move && make begin
 	#
-	# Ensure that you call ``make begin`` AND ``make`` on it!
-	# It may be built after yours, don't make a data race
+	# Ensure that you call ``make begin`` on it so that it gets
+	# its dependencies!
 
 $O/%.o: $S/%.cc $S/%.hh
 	@mkdir -p $O
