@@ -31,6 +31,7 @@ testfiles=
 all: ${files}
 
 begin:
+	git pull
 	# Install dependencies here.
 	# Example for vick-move:
 	#
