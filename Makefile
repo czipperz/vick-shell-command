@@ -1,11 +1,14 @@
 CFLAGS=-std=c++11 -I../../src -I../../test -Isrc
 LDFLAGS=`find ../../out -type f -not \( -name main.o -o -name configuration.o \)` \
-        -lncurses ../../testout/test_main.o
-        # `find` object files for dependencies here (put at end of LDFLAGS).
-        # Keep ``s so it is shell command.
-        # example for vick-move:
-        #
-        # `find ../vick-move/out -type f`
+        ../../testout/test_main.o
+
+# `find` object files for dependencies here (put in LDLIBS).
+# Keep ``s so it is shell command.
+# example for vick-move:
+#
+# `find ../vick-move/out -type f`
+LDLIBS=
+
 O=out
 S=src
 T=test
