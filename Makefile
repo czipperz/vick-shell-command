@@ -63,7 +63,8 @@ clean:
 
 test: ${files} ${testfiles}
 	@mkdir -p $T ${TO}
-	${CXX} -o $T/out ${files} ${testfiles} ${CFLAGS} ${LDFLAGS} ../../src/configuration.cc -Dtesting
+	${CXX} -o $T/out $^ ${CFLAGS} ${LDFLAGS} \
+            ../../src/configuration.cc -Dtesting
 	./$T/out
 
 # PHONY ensures that commands aren't file generators
