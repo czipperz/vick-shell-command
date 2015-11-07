@@ -62,10 +62,10 @@ clean:
 	[ ! -d ${TO} ] || rm -R ${TO}
 
 test: ${files} ${testfiles}
-	@mkdir -p $T ${TO}
-	${CXX} -o $T/out $^ ${CFLAGS} ${LDFLAGS} \
+	@mkdir -p ${TO}
+	${CXX} -o ${TO}/out $^ ${CFLAGS} ${LDFLAGS} \
             ../../src/configuration.cc -Dtesting
-	./$T/out
+	./${TO}/out
 
 # PHONY ensures that commands aren't file generators
 .PHONY: all begin clean test
