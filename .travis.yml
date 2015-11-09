@@ -16,9 +16,8 @@ before_script:
   - cd czipperz/vick
   - mkdir -p plugins
   - cd plugins
-  # customize me!
-  - git clone https://github.com/czipperz/vick-plugin-base
-  - cd vick-plugin-base
+  - git clone https://github.com/czipperz/vick-shell-command
+  - cd vick-shell-command
   - make begin
   - cd ../..
 

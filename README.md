@@ -1,3 +1,5 @@
-# My plugin [![Build Status](https://travis-ci.org/czipperz/vick-plugin-base.svg?branch=master)](https://travis-ci.org/czipperz/vick-plugin-base)
+# vick-shell-command [![Build Status](https://travis-ci.org/czipperz/vick-shell-command.svg?branch=master)](https://travis-ci.org/czipperz/vick-shell-command)
 
-What it does, how to use in `configuration.cc`
+Runs a shell command (terminal / console) and allows you to get the output.
+
+Output can be used interactively or collected for you.
