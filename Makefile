@@ -38,7 +38,7 @@ clean:
 
 test: ${files} ${testfiles}
 	@mkdir -p ${TO}
-	${CXX} -o ${TO}/out $^ ${CFLAGS} ${LDFLAGS} \
+	${CXX} -o ${TO}/out $^ ${CFLAGS} ${LDFLAGS} ${LDLIBS} \
             ../../src/configuration.cc -Dtesting
 	./${TO}/out
 
