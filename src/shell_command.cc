@@ -10,6 +10,9 @@
 #include "../../../src/split.hh"
 #include "../../../src/file_contents.hh"
 
+namespace vick {
+namespace shell_command {
+
 class exec_shell_command_exception : public std::exception {
     std::string message;
 
@@ -285,4 +288,7 @@ void exec_shell_command(const std::string& cmd, contents& cont)
         if (str.size() and str[str.size() - 1] == '\n') pb_empty = true;
         print_contents(cont);
     }, 1024);
+}
+
+}
 }

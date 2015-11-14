@@ -1,6 +1,11 @@
 #include <functional>
 #include <string>
 
+namespace vick {
+class contents;
+
+namespace shell_command {
+
 /*!
  * \brief Defines exec_shell_command(), which has four overloads for
  * different usages.
@@ -80,4 +85,7 @@ void exec_shell_command(const std::string& cmd,
  * \brief Runs the command given by \c cmd and puts stdout and stderr
  * into ``contents.cont``.
  */
-void exec_shell_command(const std::string& cmd, class contents& contents);
+void exec_shell_command(const std::string& cmd, contents& contents);
+
+}
+}
