@@ -58,7 +58,7 @@ void exec_shell_command(const std::string& cmd, std::string* out_,
             memset(readbuffer, '\0', sizeof(readbuffer));
             int nbytes = sizeof(readbuffer) - 1;
             while (std::find(readbuffer, readbuffer + nbytes, EOF) ==
-                       readbuffer + nbytes &&
+                       readbuffer + nbytes and
                    nbytes) {
                 nbytes = read(out[0], readbuffer, sizeof(readbuffer) - 1);
                 readbuffer[nbytes] = 0;
@@ -69,7 +69,7 @@ void exec_shell_command(const std::string& cmd, std::string* out_,
             memset(readbuffer, '\0', sizeof(readbuffer));
             nbytes = sizeof(readbuffer) - 1;
             while (std::find(readbuffer, readbuffer + nbytes, EOF) ==
-                       readbuffer + nbytes &&
+                       readbuffer + nbytes and
                    nbytes) {
                 nbytes = read(err[0], readbuffer, sizeof(readbuffer) - 1);
                 readbuffer[nbytes] = 0;
@@ -108,7 +108,7 @@ void exec_shell_command(const std::string& cmd, std::string* out_)
             memset(readbuffer, '\0', sizeof(readbuffer));
             int nbytes = sizeof(readbuffer) - 1;
             while (std::find(readbuffer, readbuffer + nbytes, EOF) ==
-                       readbuffer + nbytes &&
+                       readbuffer + nbytes and
                    nbytes) {
                 nbytes = read(out[0], readbuffer, sizeof(readbuffer) - 1);
                 readbuffer[nbytes] = 0;
@@ -145,7 +145,7 @@ void exec_shell_command(const std::string& cmd,
             memset(readbuffer, 0, sizeof(readbuffer));
             int nbytes = buffer_size;
             bool cont = false;
-            while (nbytes &&
+            while (nbytes and
                    std::find(readbuffer, readbuffer + nbytes, EOF) ==
                        readbuffer + nbytes) {
                 if (cont) {
@@ -172,15 +172,15 @@ void exec_shell_command(const std::string& cmd,
 {
     int out[2], err[2];
 
-    if (pipe(out) == -1 || pipe(err) == -1) {
+    if (pipe(out) == -1 or pipe(err) == -1) {
         throw exec_shell_command_exception("Couldn't generate a pipe");
     }
 
     pid_t p_read, p_err;
-    if ((p_read = fork()) == -1 || (p_err = fork()) == -1)
+    if ((p_read = fork()) == -1 or (p_err = fork()) == -1)
         throw exec_shell_command_exception("Couldn't fork the process");
-    if (!p_read && p_err) _Exit(-1);
-    if (!p_read) {
+    if (not p_read and p_err) _Exit(-1);
+    if (not p_read) {
         close(out[0]);
         dup2(out[1], STDOUT_FILENO);
         dup2(err[1], STDERR_FILENO);
@@ -197,7 +197,7 @@ void exec_shell_command(const std::string& cmd,
         memset(readbuffer, '\0', buffer_size);
         int nbytes = buffer_size;
         bool cont = false;
-        while (nbytes &&
+        while (nbytes and
                std::find(readbuffer, readbuffer + nbytes, EOF) ==
                    readbuffer + nbytes) {
             if (cont) {
@@ -221,7 +221,7 @@ void exec_shell_command(const std::string& cmd,
         memset(readbuffer, '\0', buffer_size);
         int nbytes = buffer_size;
         bool cont = false;
-        while (nbytes &&
+        while (nbytes and
                std::find(readbuffer, readbuffer + nbytes, EOF) ==
                    readbuffer + nbytes) {
             if (cont) {
