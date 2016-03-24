@@ -49,12 +49,14 @@ void exec_shell_command(const std::string& cmd,
  * The arguments out and err may be called in a seemingly random
  * order, so for example this call to exec_shell_command():
  *
- * \code 
+ * \code
  * exec_shell_command("echo exec_shell_command ;"
                       "echo can have strange behavior 1>&2;"
                       "echo ending my statement",
-                      [](std::string str){printf("<<<%s>>>", str.c_str());},
-                      [](std::string str){printf("(((%s)))", str.c_str());});
+                      [](std::string str){printf("<<<%s>>>",
+ str.c_str());},
+                      [](std::string str){printf("(((%s)))",
+ str.c_str());});
  * \endcode
  *
  * May output the lines in any order, it is completely undefined
