@@ -6,9 +6,13 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+      - hvr-ghc
     packages:
       - g++-4.8
       - libboost-all-dev
+      - software-properties-common
+      - cabal-install
+      - ghc
 
 before_script:
   - cd ../..
@@ -17,9 +21,7 @@ before_script:
   - mkdir -p plugins
   - cd plugins
   - git clone https://github.com/czipperz/vick-shell-command
-  - cd vick-shell-command
-  - make begin
-  - cd ../..
+  - cd ..
 
 script:
   - ./testing.sh
