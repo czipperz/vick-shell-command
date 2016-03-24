@@ -12,27 +12,27 @@ namespace shell_command {
  */
 
 /*!
- * \brief Runs the command given by \c cmd and puts stdout into \c out
- * and stderr into \c err.
+ * \brief Runs the command given by `cmd` and puts stdout into `out`
+ * and stderr into `err`.
  */
 void exec_shell_command(const std::string& cmd, std::string* out,
                         std::string* err);
 
 /*!
- * \brief Runs the command given by \c cmd and puts stdout and stderr
- * into \c out.
+ * \brief Runs the command given by `cmd` and puts stdout and stderr
+ * into `out`.
  */
 void exec_shell_command(const std::string& cmd, std::string* out);
 
 /*!
- * \brief Runs the command given by \c cmd and occasionally calls \out
+ * \brief Runs the command given by `cmd` and occasionally calls `out`
  * with the output of stdout and stderr, as a string with a max length
- * given by \c buffer_max_size.
+ * given by `buffer_max_size`.
  *
  * \param [in] cmd The shell command to run to get the output of.
  * \param [out] out The function to be occasionally called with the
  * output of stdout and stderr, represented as a string with a max
- * length given by \c buffer_max_size.
+ * length given by `buffer_max_size`.
  * \param [in] buffer_max_size The maximum size of the string that out
  * will be called with.  This includes the null character terminator,
  * so it should be at least two!
@@ -42,9 +42,9 @@ void exec_shell_command(const std::string& cmd,
                         size_t buffer_max_size = 1024);
 
 /*!
- * \brief Runs the command given by \c cmd and calls \c out and \c err
+ * \brief Runs the command given by `cmd` and calls `out` and `err`
  * with the output of stdout and stderr, respectively, as a string
- * with a max length given by \c buffer_max_size.
+ * with a max length given by `buffer_max_size`.
  *
  * The arguments out and err may be called in a seemingly random
  * order, so for example this call to exec_shell_command():
@@ -67,11 +67,12 @@ void exec_shell_command(const std::string& cmd,
  *
  * \param [in] cmd The shell command to run to get the output of.
  * \param [out] out The function to be occasionally called with the
- * output of stdout, represented as a string with a max length given by
- * \c buffer_max_size.
+ * output of stdout, represented as a string with a max length given
+ by
+ * `buffer_max_size`.
  * \param [out] err The function to be occasionally called with the
  * output of stderr, represented as a string with a max length given
- * by \c buffer_max_size.
+ * by `buffer_max_size`.
  * \param [in] buffer_max_size The maximum size of the string that out
  * and err will be called with.  This includes the null character
  * terminator, so it should be at least two!
@@ -82,10 +83,10 @@ void exec_shell_command(const std::string& cmd,
                         size_t buffer_max_size = 1024);
 
 /*!
- * \brief Runs the command given by \c cmd and puts stdout and stderr
+ * \brief Runs the command given by `cmd` and puts `stdout` and
+ * `stderr`
  * into ``contents.cont``.
  */
 void exec_shell_command(const std::string& cmd, contents& contents);
-
 }
 }
