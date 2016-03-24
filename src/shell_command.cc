@@ -263,12 +263,12 @@ void exec_shell_command(const std::string& cmd, contents& cont) {
                                cont.cont.push_back("");
                            }
 
-                           if ((str.size() == 0) or
+                           if ((str.empty()) or
                                (str.size() == 1 and str[0] == '\n'))
                                ;
                            else if (str.find('\n') ==
                                     std::string::npos) {
-                               if (cont.cont.size() == 0)
+                               if (cont.cont.empty())
                                    cont.cont.push_back(str);
                                else
                                    cont.cont.back() += str;
@@ -276,7 +276,7 @@ void exec_shell_command(const std::string& cmd, contents& cont) {
                                std::vector<std::string> splitted =
                                    split(str, '\n');
                                auto itr = splitted.begin();
-                               if (cont.cont.size() == 0)
+                               if (cont.cont.empty())
                                    cont.cont.push_back(*itr);
                                else
                                    cont.cont.back() += *itr;
@@ -288,7 +288,7 @@ void exec_shell_command(const std::string& cmd, contents& cont) {
                                        contin = false;
                                        cont.cont.push_back(*itr);
                                    }
-                                   if (itr->size() == 0) {
+                                   if (itr->empty()) {
                                        contin = true;
                                        continue;
                                    }
