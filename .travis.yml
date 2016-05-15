@@ -6,18 +6,13 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - hvr-ghc
     packages:
       - g++-4.8
       - libboost-all-dev
-      - software-properties-common
-      - cabal-install
-      - ghc
 
 before_script:
-  - cd ../..
-  - git clone https://github.com/czipperz/vick czipperz/vick
-  - cd czipperz/vick
+  - git clone https://github.com/czipperz/vick vick
+  - cd vick
   - mkdir -p plugins
   - cd plugins
   - git clone https://github.com/czipperz/vick-shell-command
