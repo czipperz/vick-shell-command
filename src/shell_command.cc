@@ -6,12 +6,68 @@
 #include <string>
 #include <algorithm>
 
+#include "operating_system_macros.hh"
 #include "contents.hh"
 #include "split.hh"
 #include "file_contents.hh"
 
 namespace vick {
 namespace shell_command {
+
+/// Not `static` for testing terms
+std::string quote_string_windows(const std::string& s) {
+    std::string ret;
+    ret.reserve(s.size());
+
+    // escape by wrapping double quotes and escaping double quotes
+    // inside arg
+    ret += '"';
+    std::string::const_iterator i = s.begin(), e = s.end(), p;
+beg:
+    p = i;
+    i = std::find(i, e, '"');
+    ret.append(p, i);
+    if (i != e) {
+        ret += '\\';
+        ret += '"';
+        ++i;
+        goto beg;
+    }
+    ret += '"';
+
+    return ret;
+}
+
+/// Not `static` for testing terms
+std::string quote_string_linux(const std::string& s) {
+    std::string ret;
+    ret.reserve(s.size());
+
+    // escape by wrapping single quotes and escaping single quotes and
+    // raw `\n`s
+    ret += '\'';
+    std::string::const_iterator i = s.begin(), e = s.end(), p;
+beg:
+    p = i;
+    i = std::find(i, e, '\'');
+    ret.append(p, i);
+    if (i != e) {
+        ret += "'\\''";
+        ++i;
+        goto beg;
+    }
+    ret += '\'';
+
+    return ret;
+}
+
+std::string quote_string(const std::string& s) {
+    if (IS_OS_WIN) {
+        return quote_string_windows(s);
+    } else {
+        return quote_string_linux(s);
+    }
+}
 
 class exec_shell_command_exception : public std::exception {
     std::string message;

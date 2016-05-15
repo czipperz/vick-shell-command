@@ -12,6 +12,11 @@ namespace shell_command {
  */
 
 /*!
+ * \brief Quotes a string for safe usage with a shell command.
+ */
+std::string quote_string(const std::string& s);
+
+/*!
  * \brief Runs the command given by `cmd` and puts stdout into `out`
  * and stderr into `err`.
  */
