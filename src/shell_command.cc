@@ -6,9 +6,9 @@
 #include <string>
 #include <algorithm>
 
-#include "../../../src/contents.hh"
-#include "../../../src/split.hh"
-#include "../../../src/file_contents.hh"
+#include "contents.hh"
+#include "split.hh"
+#include "file_contents.hh"
 
 namespace vick {
 namespace shell_command {
