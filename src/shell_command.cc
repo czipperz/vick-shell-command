@@ -2,18 +2,19 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-#include <mutex>
-#include <unistd.h>
-#include <functional>
 #include <string.h>
-#include <vector>
-#include <string>
+#include <unistd.h>
 #include <algorithm>
+#include <functional>
+#include <mutex>
+#include <string>
+#include <vector>
 
-#include "operating_system_macros.hh"
 #include "contents.hh"
-#include "split.hh"
 #include "file_contents.hh"
+#include "operating_system_macros.hh"
+#include "shell_command.hh"
+#include "split.hh"
 
 namespace vick {
 namespace shell_command {
