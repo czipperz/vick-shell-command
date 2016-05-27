@@ -19,7 +19,6 @@
 namespace vick {
 namespace shell_command {
 
-/// Not `static` for testing terms
 std::string quote_string_windows(const std::string& s) {
     std::string ret;
     ret.reserve(s.size());
@@ -43,7 +42,6 @@ beg:
     return ret;
 }
 
-/// Not `static` for testing terms
 std::string quote_string_linux(const std::string& s) {
     std::string ret;
     ret.reserve(s.size());

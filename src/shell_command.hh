@@ -11,12 +11,29 @@ class contents;
 namespace shell_command {
 
 /*!
- * \brief Defines exec_shell_command(), which has four overloads for
- * different usages.
+ * \brief Defines `exec_shell_command()`, which has four overloads for
+ * different usages, and `quote_string()`.
  */
 
 /*!
+ * \brief Quotes a string for safe usage with a shell command on
+ * Windows.
+ */
+std::string quote_string_windows(const std::string& s);
+
+/*!
+ * \brief Quotes a string for safe usage with a shell command on Linux
+ * or Mac.
+ */
+std::string quote_string_linux(const std::string& s);
+
+/*!
  * \brief Quotes a string for safe usage with a shell command.
+ *
+ * Calls `quote_string_windows` or `quote_string_linux` based on
+ * `IS_OS_WIN`.
+ *
+ * \see operating_system_macros.hh
  */
 std::string quote_string(const std::string& s);
 
