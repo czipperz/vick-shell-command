@@ -13,7 +13,7 @@
 #include "contents.hh"
 #include "file_contents.hh"
 #include "operating_system_macros.hh"
-#include "shell_command.hh"
+#include "../lib.hh"
 #include "split.hh"
 
 namespace vick {

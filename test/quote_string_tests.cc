@@ -3,12 +3,7 @@
 
 #include "catch.hpp"
 
-namespace vick {
-namespace shell_command {
-std::string quote_string_windows(const std::string&);
-std::string quote_string_linux(const std::string&);
-}
-}
+#include "../lib.hh"
 
 using vick::shell_command::quote_string_windows;
 using vick::shell_command::quote_string_linux;
