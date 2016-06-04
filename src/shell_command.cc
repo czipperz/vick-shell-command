@@ -15,6 +15,7 @@
 #include "operating_system_macros.hh"
 #include "../lib.hh"
 #include "split.hh"
+#include "print_contents.hh"
 
 namespace vick {
 namespace shell_command {
