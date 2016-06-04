@@ -115,7 +115,7 @@ void exec_shell_command(const std::string& cmd, std::string* out_,
             close(err[1]);
             char readbuffer[1024];
             memset(readbuffer, '\0', sizeof(readbuffer));
-            int nbytes = sizeof(readbuffer) - 1;
+            ssize_t nbytes = sizeof(readbuffer) - 1;
             while (std::find(readbuffer, readbuffer + nbytes, EOF) ==
                        readbuffer + nbytes and
                    nbytes) {
