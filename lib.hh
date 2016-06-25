@@ -14,6 +14,7 @@ class contents;
 namespace shell_command {
 
 /*!
+ * \file vick-shell-command/lib.hh
  * \brief Defines `exec_shell_command()`, which has four overloads for
  * different usages, and `quote_string()`.
  */
