@@ -10,12 +10,12 @@
 #include <string>
 #include <vector>
 
+#include "../lib.hh"
 #include "contents.hh"
 #include "file_contents.hh"
 #include "operating_system_macros.hh"
-#include "../lib.hh"
-#include "split.hh"
 #include "print_contents.hh"
+#include "split.hh"
 
 namespace vick {
 namespace shell_command {
