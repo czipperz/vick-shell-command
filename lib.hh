@@ -2,6 +2,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+#ifndef HEADER_GUARD_SHELL_COMMAND_H
+#define HEADER_GUARD_SHELL_COMMAND_H
+
 #include <functional>
 #include <string>
 
@@ -118,3 +121,5 @@ void exec_shell_command(const std::string& cmd,
 void exec_shell_command(const std::string& cmd, contents& contents);
 }
 }
+
+#endif
